@@ -26,23 +26,12 @@ export type Project = {
 }
 
 /**
- * 联系方式在源码里保持可读，但在**构建产物中不落完整明文**：
- * 拼接发生在运行时，因此直接下载 JS bundle 用正则扫邮箱/手机号的爬虫抓不到。
- *
- * ⚠️ 这**不是安全措施，只是提高门槛**。无头浏览器把页面渲染出来后照样能读到，
- * 真正有用的是 index.html 里的 noindex 和 public/robots.txt（挡住搜索引擎收录）。
+ * 页面是公开部署的，**不放电话和邮箱** —— 具体联系方式在投递简历时另行提供。
+ * 姓名与求职方向保留，否则简历失去基本辨识度。
  */
-const AT = String.fromCharCode(64) // '@'
-const PHONE_GROUPS = ['157', '1702', '8662']
-const MAILBOX = ['lstao', '0817']
-const MAIL_DOMAIN = ['163', 'com']
-
 export const profile = {
   name: '卢世涛',
   target: '数据开发实习生',
-  phone: PHONE_GROUPS.join('-'),
-  telHref: `tel:${PHONE_GROUPS.join('')}`,
-  email: MAILBOX.join('') + AT + MAIL_DOMAIN.join('.'),
 } as const
 
 /** 到岗情况，置于页首个人信息区 */
@@ -131,13 +120,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    // LaTeX 原文中此项目没有「技术栈」行。下面三项由用户指定为"三个主要的"，
+    // LaTeX 原文中此项目没有「技术栈」行。下面两项由用户指定，
     // 且每一项都能在本项目的描述原文里找到出处：
     //   StarRocks —— 「基于 StarRocks 搭建电商 OLAP 分析平台」
-    //   Parquet   —— 「通过 Parquet 数据文件完成离线数仓与 StarRocks 的数据衔接」
     //   Spark     —— 「设计 Spark 与 StarRocks 对照 Benchmark」
     name: '电商 OLAP 分析与数据服务平台',
-    stack: ['StarRocks', 'Spark', 'Parquet'],
+    stack: ['StarRocks', 'Spark'],
     bullets: [
       {
         label: '数据服务',
