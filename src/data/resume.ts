@@ -25,9 +25,24 @@ export type Project = {
   bullets: ProjectBullet[]
 }
 
+/**
+ * 联系方式在源码里保持可读，但在**构建产物中不落完整明文**：
+ * 拼接发生在运行时，因此直接下载 JS bundle 用正则扫邮箱/手机号的爬虫抓不到。
+ *
+ * ⚠️ 这**不是安全措施，只是提高门槛**。无头浏览器把页面渲染出来后照样能读到，
+ * 真正有用的是 index.html 里的 noindex 和 public/robots.txt（挡住搜索引擎收录）。
+ */
+const AT = String.fromCharCode(64) // '@'
+const PHONE_GROUPS = ['157', '1702', '8662']
+const MAILBOX = ['lstao', '0817']
+const MAIL_DOMAIN = ['163', 'com']
+
 export const profile = {
   name: '卢世涛',
   target: '数据开发实习生',
+  phone: PHONE_GROUPS.join('-'),
+  telHref: `tel:${PHONE_GROUPS.join('')}`,
+  email: MAILBOX.join('') + AT + MAIL_DOMAIN.join('.'),
 } as const
 
 /** 到岗情况，置于页首个人信息区 */
