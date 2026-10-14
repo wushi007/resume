@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+/* 色板登记为语义 token：出题方给定的精确色值集中在这里，
+   组件里只用 bg-page / text-ink 这类语义类，不散落十六进制。 */
+@theme {
+  --color-page: #f8fafc;
+  --color-surface: #ffffff;
+  --color-ink: #1e293b;
+  --color-muted: #64748b;
+  --color-accent: #2563eb;
+  --color-tag: #eff6ff;
+  --color-tag-ink: #1d4ed8;
+  --color-line: #e2e8f0;
+
+  /* 中文简历的正文字体栈：优先系统自带中文字体，
+     避免为一个静态页拉取数 MB 的 CJK 网络字体。 */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC',
+    'Source Han Sans SC', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 尊重系统的减弱动效偏好 */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* 简历里数字密集（1.098 亿行 / 730ms / 3.3~11 倍），
+       等宽数字让指标在同一列上对齐，也避免数字宽度跳动 */
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 避免段落末行只剩一两个字的孤字 */
+  p {
+    text-wrap: pretty;
+  }
+
+  h1 {
+    text-wrap: balance;
+  }
+
+  /* 键盘可见焦点：鼠标点击不触发，只有 Tab 走查时出现 */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
