@@ -22,6 +22,8 @@ export type Project = {
   name: string
   /** LaTeX 原文中该项目未给出技术栈行；缺省时整行不渲染 */
   stack?: string[]
+  /** GitHub 仓库地址；缺省时该条目不出「详细」按钮 */
+  repo?: string
   bullets: ProjectBullet[]
 }
 
@@ -181,6 +183,7 @@ export const projects: Project[] = [
   },
   {
     name: '基于 DataWorks 的云上数据开发实践',
+    repo: 'https://github.com/wushi007/dataworks_demo',
     stack: ['DataWorks', 'OSS', 'PySpark', 'Parquet', 'Iceberg'],
     bullets: [
       {
