@@ -84,7 +84,7 @@ export const skills: SkillGroup[] = [
 export const projects: Project[] = [
   {
     name: '电商离线数仓',
-    repo: 'https://github.com/wushi007/offline-data-warehouse',
+    repo: 'https://gitee.com/shitao777/offline-data-warehouse_demo',
     stack: [
       'Spark',
       'Hive',
@@ -184,7 +184,7 @@ export const projects: Project[] = [
   },
   {
     name: '基于 DataWorks 的云上数据开发实践',
-    repo: 'https://github.com/wushi007/dataworks_demo',
+    repo: 'https://gitee.com/shitao777/dataworks',
     stack: ['DataWorks', 'OSS', 'PySpark', 'Parquet', 'Iceberg'],
     bullets: [
       {
