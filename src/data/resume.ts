@@ -84,6 +84,7 @@ export const skills: SkillGroup[] = [
 export const projects: Project[] = [
   {
     name: '电商离线数仓',
+    repo: 'https://github.com/wushi007/offline-data-warehouse',
     stack: [
       'Spark',
       'Hive',
@@ -97,11 +98,11 @@ export const projects: Project[] = [
     bullets: [
       {
         label: '数仓架构',
-        text: '基于 Spark + Hive 搭建 ODS→DWD→DWS→DIM→ADS 五层离线数仓，处理 1.098 亿行电商行为数据，产出 20+ 张分层表，使用 Airflow 实现 T+1 调度。',
+        text: '基于 Spark + Hive 搭建 ODS→DWD→DWS→DIM→ADS 五层离线数仓，处理 1.098 亿行电商行为数据，产出 19 张分层表；使用 Airflow 按层编排（一层一 task，层内单 Session 串行），支持 T+1 日级 trigger/backfill。',
       },
       {
         label: '维度建模',
-        text: '设计用户、商品、地区、时间等维度及事实表；对商品数据去噪后，针对属性变化实现 SCD2，产出 23.0 万个商品版本，保证历史版本区间无重叠、无间隙。',
+        text: '设计用户、商品、地区、时间等维度及事实表；对商品数据去噪后，针对属性变化实现 SCD2，产出 22.3 万个商品版本（222,761），保证历史版本区间无重叠、无间隙。',
       },
       {
         label: '工程规范',
