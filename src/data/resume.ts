@@ -39,6 +39,9 @@ export const profile = {
 /** 到岗情况，置于页首个人信息区 */
 export const availability = '可立即到岗，每周 5 天，3 个月以上'
 
+/** 页首交互提示：项目条目可展开，右侧按钮可跳转仓库 */
+export const interactionHint = '项目名称可点击展开要点，右侧「详细」可查看仓库'
+
 export const navItems = [
   { id: 'summary', label: '个人简介' },
   { id: 'education', label: '教育经历' },

@@ -1,4 +1,4 @@
-import { availability, profile } from '../data/resume'
+import { availability, interactionHint, profile } from '../data/resume'
 
 export function Cover() {
   return (
@@ -25,6 +25,7 @@ export function Cover() {
       <div className="mt-8 border-t border-line pt-7">
         <p className="text-xs tracking-wide text-muted">到岗情况</p>
         <p className="mt-1.5 text-[15px] text-ink">{availability}</p>
+        <p className="mt-3 text-xs leading-5 text-muted">{interactionHint}</p>
       </div>
     </header>
   )
